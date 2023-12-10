@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+   h1{
+    color: rgba(7, 7, 62, 0.89);
+    text-align: center;
+   } 
+   .birth{
+    color:red;
+    text-align: center;
+   } 
+   .submit{
+    color:32A80F;
+    text-align:center;
+   }
+
+  </style>
+
+
+</head>
+<body>
+<h1> Calculate Age from Date of Birth <br><br></h1> 
+
+<div class="birth">
+<b> Enter Date of Birth: <input type=date id = DOB> </b>
+<span id = "message"></span> <br><br>
+</div>
+
+<div class="submit">
+<button type="submit" onclick = "ageCalculator()"> Calculate age </button> <br><br>
+<h3 id="result"></h3> 
+</div>
+
+<script>
+  function ageCalculator() {
+      var userinput = document.getElementById("DOB").value;
+      var dob = new Date(userinput);
+      if(userinput==null || userinput=='') {
+        document.getElementById("message").innerHTML = "**Choose a date please!";  
+        return false; 
+      } else {
+  
+      var month_diff = Date.now() - dob.getTime();
+  
+      var age_dt = new Date(month_diff); 
+  
+      var year = age_dt.getUTCFullYear();
+      
+      var age = Math.abs(year - 1970);
+      
+      return document.getElementById("result").innerHTML =  
+               "Age is: " + age + " years. ";
+      }
+  }
+  </script>
+</body>
+</html>
+
+ 
